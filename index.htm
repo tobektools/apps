@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOBEK Tools - Build For Impact</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen pb-16 md:pb-0">
+
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-slate-900 text-white text-xs py-2 px-4">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+      <div class="flex items-center gap-6 text-gray-300">
+        <span><i class="fas fa-truck mr-2"></i>Pengiriman Cepat &amp; Aman</span>
+        <span><i class="fas fa-shield-alt mr-2"></i>Produk Original &amp; Berkualitas</span>
+        <span class="hidden md:inline"><i class="fas fa-headset mr-2"></i>Layanan Pelanggan 08.00 - 21.00</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#" class="hover:text-orange-500"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="hover:text-orange-500"><i class="fab fa-tiktok"></i></a>
+        <a href="#" class="hover:text-orange-500"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER DESKTOP -->
+  <header class="bg-white border-b sticky top-0 z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-8">
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center text-white font-black text-xl italic shadow-md">TB</div>
+          <div>
+            <span class="text-2xl font-black tracking-tight text-slate-800">TOBEK</span>
+            <span class="block text-[10px] font-bold text-orange-500 tracking-wider -mt-1">BUILD FOR IMPACT</span>
+          </div>
+        </a>
+        <nav class="hidden lg:flex items-center gap-6 font-medium text-sm">
+          <a href="#" class="text-orange-500 border-b-2 border-orange-500 pb-1 font-semibold">Beranda</a>
+          <a href="#kategori" class="hover:text-orange-500 transition">Kategori</a>
+          <a href="#produk" class="hover:text-orange-500 transition">Produk</a>
+          <a href="#" class="hover:text-orange-500 transition">Tentang Kami</a>
+          <a href="#" class="hover:text-orange-500 transition">Promo</a>
+          <a href="#" class="hover:text-orange-500 transition">Kontak</a>
+        </nav>
+      </div>
+
+      <div class="flex-1 max-w-md mx-4">
+        <div class="relative">
+          <input type="text" id="searchInput" oninput="handleFilter()" placeholder="Cari nama produk, SKU, atau brand..." class="w-full bg-gray-100 border border-gray-200 rounded-lg pl-4 pr-10 py-2 text-sm focus:outline-none focus:border-orange-500 transition">
+          <button class="absolute right-0 top-0 h-full px-3 text-white bg-orange-500 rounded-r-lg hover:bg-orange-600 transition"><i class="fas fa-search"></i></button>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button class="relative p-2 text-gray-700 hover:text-orange-500 transition">
+          <i class="fas fa-shopping-cart text-xl"></i>
+          <span class="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6 space-y-10">
+
+    <!-- HERO BANNER -->
+    <section class="bg-slate-100 rounded-2xl overflow-hidden shadow-inner relative">
+      <div class="grid md:grid-cols-2 items-center p-8 md:p-12">
+        <div class="space-y-4 z-10">
+          <span class="text-xs font-bold text-orange-500 tracking-widest uppercase">PERALATAN &amp; KETUBUHAN TOOLS</span>
+          <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">Perkakas untuk pekerjaan yang lebih siap.</h1>
+          <p class="text-gray-600 text-sm md:text-base leading-relaxed">Temukan produk TOBEK TOOLS dan brand pilihan untuk kebutuhan bangunan, konstruksi, pertukangan, dan pekerjaan sehari-hari.</p>
+          <a href="#produk" class="inline-flex items-center gap-2 bg-orange-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-orange-600 transition shadow-md">Lihat Katalog <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="mt-6 md:mt-0 flex justify-center">
+          <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="TOBEK Tools Banner" class="rounded-xl shadow-lg max-h-72 object-cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- KATEGORI -->
+    <section id="kategori">
+      <div class="flex justify-between items-end mb-6">
+        <div>
+          <span class="text-xs font-bold text-orange-500 tracking-wider uppercase">KATEGORI</span>
+          <h2 class="text-xl md:text-2xl font-bold text-slate-800">Pilih kategori sesuai kebutuhan Anda</h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 gap-3">
+        <button onclick="filterCategory('All')" class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-orange-500 transition text-center group">
+          <div class="w-10 h-10 mx-auto mb-2 text-orange-500 flex items-center justify-center bg-orange-50 rounded-lg group-hover:bg-orange-500 group-hover:text-white transition"><i class="fas fa-th-large text-lg"></i></div>
+          <p class="font-bold text-xs">Semua</p>
+        </button>
+        <button onclick="filterCategory('Hand Tools')" class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-orange-500 transition text-center group">
+          <div class="w-10 h-10 mx-auto mb-2 text-orange-500 flex items-center justify-center bg-orange-50 rounded-lg group-hover:bg-orange-500 group-hover:text-white transition"><i class="fas fa-wrench text-lg"></i></div>
+          <p class="font-bold text-xs">Hand Tools</p>
+        </button>
+        <button onclick="filterCategory('Power Tools')" class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-orange-500 transition text-center group">
+          <div class="w-10 h-10 mx-auto mb-2 text-orange-500 flex items-center justify-center bg-orange-50 rounded-lg group-hover:bg-orange-500 group-hover:text-white transition"><i class="fas fa-bolt text-lg"></i></div>
+          <p class="font-bold text-xs">Power Tools</p>
+        </button>
+        <button onclick="filterCategory('Tools Set')" class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-orange-500 transition text-center group">
+          <div class="w-10 h-10 mx-auto mb-2 text-orange-500 flex items-center justify-center bg-orange-50 rounded-lg group-hover:bg-orange-500 group-hover:text-white transition"><i class="fas fa-toolbox text-lg"></i></div>
+          <p class="font-bold text-xs">Tools Set</p>
+        </button>
+        <button onclick="filterCategory('Safety')" class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-orange-500 transition text-center group">
+          <div class="w-10 h-10 mx-auto mb-2 text-orange-500 flex items-center justify-center bg-orange-50 rounded-lg group-hover:bg-orange-500 group-hover:text-white transition"><i class="fas fa-hard-hat text-lg"></i></div>
+          <p class="font-bold text-xs">Safety</p>
+        </button>
+        <button onclick="filterCategory('Measuring')" class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-orange-500 transition text-center group">
+          <div class="w-10 h-10 mx-auto mb-2 text-orange-500 flex items-center justify-center bg-orange-50 rounded-lg group-hover:bg-orange-500 group-hover:text-white transition"><i class="fas fa-ruler-combined text-lg"></i></div>
+          <p class="font-bold text-xs">Measuring</p>
+        </button>
+        <button onclick="filterCategory('Hardware')" class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-orange-500 transition text-center group">
+          <div class="w-10 h-10 mx-auto mb-2 text-orange-500 flex items-center justify-center bg-orange-50 rounded-lg group-hover:bg-orange-500 group-hover:text-white transition"><i class="fas fa-cog text-lg"></i></div>
+          <p class="font-bold text-xs">Hardware</p>
+        </button>
+        <button onclick="filterCategory('Building Material')" class="bg-white p-3 rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-orange-500 transition text-center group">
+          <div class="w-10 h-10 mx-auto mb-2 text-orange-500 flex items-center justify-center bg-orange-50 rounded-lg group-hover:bg-orange-500 group-hover:text-white transition"><i class="fas fa-building text-lg"></i></div>
+          <p class="font-bold text-xs">Building</p>
+        </button>
+      </div>
+    </section>
+
+    <!-- PRODUK CATALOG WITH PAGINATION -->
+    <section id="produk">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div>
+          <span class="text-xs font-bold text-orange-500 tracking-wider uppercase">PRODUK PILIHAN</span>
+          <h2 class="text-xl md:text-2xl font-bold text-slate-800">Katalog Produk TOBEK TOOLS</h2>
+        </div>
+
+        <!-- FILTER TOOLBAR -->
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <select id="categorySelect" onchange="handleFilter()" class="bg-white border rounded-lg px-3 py-2 focus:outline-none focus:border-orange-500">
+            <option value="All">Semua Kategori</option>
+            <option value="Hand Tools">Hand Tools</option>
+            <option value="Power Tools">Power Tools</option>
+            <option value="Tools Set">Tools Set</option>
+            <option value="Safety">Safety</option>
+            <option value="Measuring">Measuring</option>
+            <option value="Hardware">Hardware</option>
+            <option value="Building Material">Building Material</option>
+          </select>
+
+          <select id="sortSelect" onchange="handleFilter()" class="bg-white border rounded-lg px-3 py-2 focus:outline-none focus:border-orange-500">
+            <option value="default">Urutkan: Bawaan</option>
+            <option value="low">Harga: Terendah</option>
+            <option value="high">Harga: Tertinggi</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- PRODUCT GRID -->
+      <div id="productGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- PAGINATION CONTROLS -->
+      <div class="flex justify-between items-center mt-8 bg-white p-4 rounded-xl border shadow-sm">
+        <span id="pageInfo" class="text-xs text-gray-500 font-medium">Menampilkan 0 dari 0 produk</span>
+        <div class="flex items-center gap-2" id="paginationButtons">
+          <!-- Buttons generated by JS -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- JAVASCRIPT LOGIC WITH DEMO DATA -->
+  <script>
+    let allProducts = [];
+    let filteredProducts = [];
+    let currentPage = 1;
+    const itemsPerPage = 8;
+
+    // Produk awal (Contoh sesuai gambar)
+    const initialDemoProducts = [
+      { id: 1, name: 'Meteran 5m', sku: 'TBK-0001', price: 45000, originalPrice: 60000, category: 'Measuring', image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=600&q=80', status: 'Tersedia', badge: 'Featured', badgeColor: 'bg-orange-500' },
+      { id: 2, name: 'Bor Cordless 12V', sku: 'TBK-0002', price: 389000, originalPrice: 480000, category: 'Power Tools', image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=600&q=80', status: 'Tersedia', badge: 'Terbaru', badgeColor: 'bg-blue-600' },
+      { id: 3, name: 'Tool Set 32 pcs', sku: 'TBK-0032', price: 259000, originalPrice: 345000, category: 'Tools Set', image: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=600&q=80', status: 'Tersedia', badge: 'Featured', badgeColor: 'bg-orange-500' },
+      { id: 4, name: 'Helm Safety TOBEK', sku: 'TBK-0101', price: 55000, originalPrice: 75000, category: 'Safety', image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80', status: 'Tersedia', badge: 'Terbaru', badgeColor: 'bg-blue-600' },
+      { id: 5, name: 'Kunci Inggris 10"', sku: 'TBK-0201', price: 55000, originalPrice: 85000, category: 'Hand Tools', image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=600&q=80', status: 'Tersedia', badge: 'Diskon', badgeColor: 'bg-emerald-500' },
+      { id: 6, name: 'Roll Cat 9"', sku: 'TBK-0301', price: 32000, originalPrice: 45000, category: 'Building Material', image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80', status: 'Tersedia', badge: 'Featured', badgeColor: 'bg-orange-500' }
+    ];
+
+    async function loadProducts() {
+      try {
+        const response = await fetch('products.json');
+        if (response.ok) {
+          allProducts = await response.json();
+        } else {
+          allProducts = initialDemoProducts;
+        }
+      } catch (err) {
+        allProducts = initialDemoProducts;
+      }
+      filteredProducts = [...allProducts];
+      renderProducts();
+    }
+
+    function handleFilter() {
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      const category = document.getElementById('categorySelect').value;
+      const sort = document.getElementById('sortSelect').value;
+
+      filteredProducts = allProducts.filter(p => {
+        const matchesSearch = p.name.toLowerCase().includes(search) || p.sku.toLowerCase().includes(search);
+        const matchesCat = category === 'All' || p.category === category;
+        return matchesSearch && matchesCat;
+      });
+
+      if (sort === 'low') filteredProducts.sort((a, b) => a.price - b.price);
+      if (sort === 'high') filteredProducts.sort((a, b) => b.price - a.price);
+
+      currentPage = 1;
+      renderProducts();
+    }
+
+    function filterCategory(catName) {
+      document.getElementById('categorySelect').value = catName;
+      handleFilter();
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+
+      const totalItems = filteredProducts.length;
+      const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+
+      const start = (currentPage - 1) * itemsPerPage;
+      const paginatedItems = filteredProducts.slice(start, start + itemsPerPage);
+
+      if (paginatedItems.length === 0) {
+        grid.innerHTML = `<div class="col-span-full py-12 text-center text-gray-500">Tidak ada produk yang ditemukan.</div>`;
+      } else {
+        paginatedItems.forEach(p => {
+          grid.innerHTML += `
+            <div class="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition overflow-hidden flex flex-col justify-between">
+              <div class="relative p-4 bg-gray-50 flex items-center justify-center">
+                <span class="${p.badgeColor || 'bg-orange-500'} text-white text-[10px] font-bold px-2 py-0.5 rounded absolute top-2 left-2">${p.badge || 'Featured'}</span>
+                <span class="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded absolute top-2 right-2">${p.status || 'Tersedia'}</span>
+                <img src="${p.image}" alt="${p.name}" class="h-32 object-contain my-2">
+              </div>
+              <div class="p-3 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 class="font-bold text-xs line-clamp-2 text-slate-800">${p.name}</h3>
+                  <p class="text-[10px] text-gray-400 mt-0.5">SKU: ${p.sku}</p>
+                  <div class="mt-2">
+                    <span class="text-orange-500 font-extrabold text-sm">Rp ${p.price.toLocaleString('id-ID')}</span>
+                    <span class="text-gray-400 text-[10px] line-through ml-1">Rp ${p.originalPrice ? p.originalPrice.toLocaleString('id-ID') : ''}</span>
+                  </div>
+                </div>
+                <div class="grid grid-cols-2 gap-1.5 mt-3 text-[10px] font-bold">
+                  <a href="#" class="bg-orange-500 text-white py-1.5 text-center rounded hover:opacity-90"><i class="fas fa-shopping-bag mr-1"></i>Shopee</a>
+                  <a href="#" class="bg-emerald-600 text-white py-1.5 text-center rounded hover:opacity-90"><i class="fab fa-whatsapp mr-1"></i>WA</a>
+                  <a href="#" class="bg-emerald-500 text-white py-1.5 text-center rounded hover:opacity-90"><i class="fas fa-store mr-1"></i>Tokopedia</a>
+                  <a href="#" class="bg-slate-900 text-white py-1.5 text-center rounded hover:opacity-90"><i class="fab fa-tiktok mr-1"></i>TikTok</a>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+      }
+
+      document.getElementById('pageInfo').innerText = `Menampilkan ${totalItems === 0 ? 0 : start + 1} - ${Math.min(start + itemsPerPage, totalItems)} dari ${totalItems} produk`;
+      
+      const btnContainer = document.getElementById('paginationButtons');
+      btnContainer.innerHTML = `
+        <button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''} class="px-3 py-1 border rounded text-xs disabled:opacity-40 hover:bg-gray-100">Prev</button>
+        <span class="text-xs font-bold px-2">${currentPage} / ${totalPages}</span>
+        <button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages || totalPages === 0 ? 'disabled' : ''} class="px-3 py-1 border rounded text-xs disabled:opacity-40 hover:bg-gray-100">Next</button>
+      `;
+    }
+
+    function changePage(page) {
+      currentPage = page;
+      renderProducts();
+      document.getElementById('produk').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    loadProducts();
+  </script>
+</body>
+</html>
