@@ -357,6 +357,18 @@
     }
 
     loadProducts();
+    // Otomatis pindah warna oranye navigasi
+  const navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(item => {
+    item.addEventListener('click', function() {
+      navItems.forEach(link => {
+        link.classList.remove('text-orange-500', 'border-b-2', 'border-orange-500', 'font-semibold');
+        link.classList.add('hover:text-orange-400');
+      });
+      this.classList.add('text-orange-500', 'border-b-2', 'border-orange-500', 'font-semibold');
+      this.classList.remove('hover:text-orange-400');
+    });
+  });
   </script>
 </body>
 </html>
