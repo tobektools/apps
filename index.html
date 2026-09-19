@@ -9,7 +9,7 @@
 </head>
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
 
-    <!-- HEADER DESKTOP (LATAR BIRU GELAP) -->
+  <!-- HEADER DESKTOP (LATAR BIRU GELAP) -->
   <header class="bg-slate-900 text-white sticky top-0 z-40 shadow-md border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
       
@@ -20,13 +20,13 @@
         </a>
         <!-- MENU NAVIGASI -->
         <nav id="nav-menu" class="hidden lg:flex items-center gap-6 font-medium text-sm text-gray-200">
-        <a href="#" class="nav-item text-orange-500 border-b-2 border-orange-500 pb-1 font-semibold">Beranda</a>
-        <a href="#kategori" class="nav-item hover:text-orange-400 transition pb-1">Kategori</a>
-        <a href="#produk" class="nav-item hover:text-orange-400 transition pb-1">Produk</a>
-        <a href="#tentang" class="nav-item hover:text-orange-400 transition pb-1">Tentang Kami</a>
-        <a href="#promo" class="nav-item hover:text-orange-400 transition pb-1">Promo</a>
-        <a href="#kontak" class="nav-item hover:text-orange-400 transition pb-1">Kontak</a>
-      </nav>
+          <a href="#" class="nav-item text-orange-500 border-b-2 border-orange-500 pb-1 font-semibold">Beranda</a>
+          <a href="#kategori" class="nav-item hover:text-orange-400 transition pb-1">Kategori</a>
+          <a href="#produk" class="nav-item hover:text-orange-400 transition pb-1">Produk</a>
+          <a href="#tentang" class="nav-item hover:text-orange-400 transition pb-1">Tentang Kami</a>
+          <a href="#promo" class="nav-item hover:text-orange-400 transition pb-1">Promo</a>
+          <a href="#kontak" class="nav-item hover:text-orange-400 transition pb-1">Kontak</a>
+        </nav>
       </div>
 
       <!-- SEARCH BAR -->
@@ -39,13 +39,10 @@
 
       <!-- IKON AKUN & KERANJANG -->
       <div class="flex items-center gap-3">
-       <!-- IKON WISHLIST -->
-      <a href="#wishlist" class="relative p-2 text-gray-200 hover:text-orange-400 transition" title="Wishlist">
-        <i class="far fa-heart text-xl"></i>
-        <!-- Badge angka wishlist jika ingin dipakai nantinya -->
-        <span class="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
-      </a>
-        <!-- Ikon Keranjang -->
+        <a href="#wishlist" class="relative p-2 text-gray-200 hover:text-orange-400 transition" title="Wishlist">
+          <i class="far fa-heart text-xl"></i>
+          <span class="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
+        </a>
         <button class="relative p-2 text-gray-200 hover:text-orange-400 transition">
           <i class="fas fa-shopping-cart text-xl"></i>
           <span class="absolute -top-1 -right-1 bg-orange-500 text-white text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">0</span>
@@ -117,7 +114,7 @@
       </div>
     </section>
 
-    <!-- PRODUK CATALOG WITH PAGINATION -->
+    <!-- PRODUK CATALOG -->
     <section id="produk">
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
         <div>
@@ -161,6 +158,44 @@
     </section>
   </main>
 
+  <!-- MODAL DETAIL PRODUK -->
+  <div id="productModal" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-700 text-2xl font-bold p-1">&times;</button>
+      
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <img id="modalMainImg" src="" class="w-full h-64 object-contain rounded-xl bg-gray-50 border p-2">
+          <div id="modalThumbnails" class="flex gap-2 mt-3 overflow-x-auto pb-2"></div>
+        </div>
+        <div class="flex flex-col justify-between space-y-4">
+          <div>
+            <span id="modalCategory" class="text-xs font-bold text-orange-500 uppercase"></span>
+            <h2 id="modalTitle" class="text-lg font-bold text-slate-900 mt-1"></h2>
+            <p id="modalSku" class="text-xs text-gray-400 mt-1"></p>
+
+            <div class="mt-3 flex items-baseline gap-2">
+              <span id="modalPrice" class="text-xl font-extrabold text-orange-500"></span>
+              <span id="modalOriginalPrice" class="text-xs text-gray-400 line-through"></span>
+            </div>
+
+            <div class="mt-4 border-t pt-3">
+              <h4 class="text-xs font-bold text-slate-800 uppercase mb-1">Deskripsi Produk:</h4>
+              <p id="modalDesc" class="text-xs text-gray-600 whitespace-pre-line leading-relaxed max-h-40 overflow-y-auto"></p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 text-xs font-bold pt-3 border-t">
+            <a href="#" class="bg-orange-500 text-white py-2 text-center rounded-lg hover:opacity-90 flex items-center justify-center gap-1"><i class="fas fa-shopping-bag"></i> Shopee</a>
+            <a href="#" class="bg-emerald-600 text-white py-2 text-center rounded-lg hover:opacity-90 flex items-center justify-center gap-1"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            <a href="#" class="bg-emerald-500 text-white py-2 text-center rounded-lg hover:opacity-90 flex items-center justify-center gap-1"><i class="fas fa-store"></i> Tokopedia</a>
+            <a href="#" class="bg-slate-900 text-white py-2 text-center rounded-lg hover:opacity-90 flex items-center justify-center gap-1"><i class="fab fa-tiktok"></i> TikTok</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- FOOTER (LATAR BIRU GELAP) -->
   <footer class="bg-slate-900 text-gray-300 text-xs mt-12 border-t border-slate-800">
     <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-5 gap-8">
@@ -193,7 +228,6 @@
           <li><a href="#kategori" onclick="filterCategory('Safety')" class="hover:text-orange-400 transition">Safety</a></li>
           <li><a href="#kategori" onclick="filterCategory('Measuring')" class="hover:text-orange-400 transition">Measuring</a></li>
           <li><a href="#kategori" onclick="filterCategory('Hardware')" class="hover:text-orange-400 transition">Hardware</a></li>
-          <li><a href="#kategori" onclick="filterCategory('Building Material')" class="hover:text-orange-400 transition">Paint &amp; Finishing</a></li>
           <li><a href="#kategori" onclick="filterCategory('Building Material')" class="hover:text-orange-400 transition">Building Material</a></li>
         </ul>
       </div>
@@ -251,25 +285,14 @@
     let currentPage = 1;
     const itemsPerPage = 8;
 
-    const initialDemoProducts = [
-      { id: 1, name: 'Meteran 5m', sku: 'TBK-0001', price: 45000, originalPrice: 60000, category: 'Measuring', image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=600&q=80', status: 'Tersedia', badge: 'Featured', badgeColor: 'bg-orange-500' },
-      { id: 2, name: 'Bor Cordless 12V', sku: 'TBK-0002', price: 389000, originalPrice: 480000, category: 'Power Tools', image: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=600&q=80', status: 'Tersedia', badge: 'Terbaru', badgeColor: 'bg-blue-600' },
-      { id: 3, name: 'Tool Set 32 pcs', sku: 'TBK-0032', price: 259000, originalPrice: 345000, category: 'Tools Set', image: 'https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=600&q=80', status: 'Tersedia', badge: 'Featured', badgeColor: 'bg-orange-500' },
-      { id: 4, name: 'Helm Safety TOBEK', sku: 'TBK-0101', price: 55000, originalPrice: 75000, category: 'Safety', image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80', status: 'Tersedia', badge: 'Terbaru', badgeColor: 'bg-blue-600' },
-      { id: 5, name: 'Kunci Inggris 10"', sku: 'TBK-0201', price: 55000, originalPrice: 85000, category: 'Hand Tools', image: 'https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&w=600&q=80', status: 'Tersedia', badge: 'Diskon', badgeColor: 'bg-emerald-500' },
-      { id: 6, name: 'Roll Cat 9"', sku: 'TBK-0301', price: 32000, originalPrice: 45000, category: 'Building Material', image: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=600&q=80', status: 'Tersedia', badge: 'Featured', badgeColor: 'bg-orange-500' }
-    ];
-
     async function loadProducts() {
       try {
         const response = await fetch('products.json');
         if (response.ok) {
           allProducts = await response.json();
-        } else {
-          allProducts = initialDemoProducts;
         }
       } catch (err) {
-        allProducts = initialDemoProducts;
+        console.error("Gagal memuat products.json", err);
       }
       filteredProducts = [...allProducts];
       renderProducts();
@@ -312,12 +335,15 @@
         grid.innerHTML = `<div class="col-span-full py-12 text-center text-gray-500">Tidak ada produk yang ditemukan.</div>`;
       } else {
         paginatedItems.forEach(p => {
+          // Ambil gambar pertama jika image berupa array
+          const mainImg = Array.isArray(p.image) ? p.image[0] : (p.image || '');
+
           grid.innerHTML += `
-            <div class="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition overflow-hidden flex flex-col justify-between">
+            <div class="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition overflow-hidden flex flex-col justify-between cursor-pointer" onclick="openModal(${p.id})">
               <div class="relative p-4 bg-gray-50 flex items-center justify-center">
                 <span class="${p.badgeColor || 'bg-orange-500'} text-white text-[10px] font-bold px-2 py-0.5 rounded absolute top-2 left-2">${p.badge || 'Featured'}</span>
-                <span class="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded absolute top-2 right-2">${p.status || 'Tersedia'}</span>
-                <img src="${p.image}" alt="${p.name}" class="h-32 object-contain my-2">
+                <span class="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded absolute top-2 right-2">${p.stockStatus || 'Tersedia'}</span>
+                <img src="${mainImg}" alt="${p.name}" class="h-32 object-contain my-2">
               </div>
               <div class="p-3 flex-1 flex flex-col justify-between">
                 <div>
@@ -328,7 +354,7 @@
                     <span class="text-gray-400 text-[10px] line-through ml-1">Rp ${p.originalPrice ? p.originalPrice.toLocaleString('id-ID') : ''}</span>
                   </div>
                 </div>
-                <div class="grid grid-cols-2 gap-1.5 mt-3 text-[10px] font-bold">
+                <div class="grid grid-cols-2 gap-1.5 mt-3 text-[10px] font-bold" onclick="event.stopPropagation()">
                   <a href="#" class="bg-orange-500 text-white py-1.5 text-center rounded hover:opacity-90"><i class="fas fa-shopping-bag mr-1"></i>Shopee</a>
                   <a href="#" class="bg-emerald-600 text-white py-1.5 text-center rounded hover:opacity-90"><i class="fab fa-whatsapp mr-1"></i>WhatsApp</a>
                   <a href="#" class="bg-emerald-500 text-white py-1.5 text-center rounded hover:opacity-90"><i class="fas fa-store mr-1"></i>Tokopedia</a>
@@ -356,19 +382,48 @@
       document.getElementById('produk').scrollIntoView({ behavior: 'smooth' });
     }
 
-    loadProducts();
-    // Otomatis pindah warna oranye navigasi
-  const navItems = document.querySelectorAll('.nav-item');
-  navItems.forEach(item => {
-    item.addEventListener('click', function() {
-      navItems.forEach(link => {
-        link.classList.remove('text-orange-500', 'border-b-2', 'border-orange-500', 'font-semibold');
-        link.classList.add('hover:text-orange-400');
+    function openModal(id) {
+      const p = allProducts.find(item => item.id === id);
+      if (!p) return;
+
+      const images = Array.isArray(p.image) ? p.image : [p.image];
+      
+      document.getElementById('modalMainImg').src = images[0] || '';
+      document.getElementById('modalCategory').innerText = p.category || '';
+      document.getElementById('modalTitle').innerText = p.name || '';
+      document.getElementById('modalSku').innerText = 'SKU: ' + (p.sku || '');
+      document.getElementById('modalPrice').innerText = 'Rp ' + (p.price ? p.price.toLocaleString('id-ID') : '0');
+      document.getElementById('modalOriginalPrice').innerText = p.originalPrice ? 'Rp ' + p.originalPrice.toLocaleString('id-ID') : '';
+      document.getElementById('modalDesc').innerText = p.desc || p.description || 'Tidak ada deskripsi.';
+
+      const thumbContainer = document.getElementById('modalThumbnails');
+      thumbContainer.innerHTML = '';
+      images.forEach((imgUrl, index) => {
+        thumbContainer.innerHTML += `
+          <img src="${imgUrl}" onclick="document.getElementById('modalMainImg').src='${imgUrl}'" class="w-12 h-12 object-contain border rounded-lg cursor-pointer hover:border-orange-500 p-0.5 bg-gray-50">
+        `;
       });
-      this.classList.add('text-orange-500', 'border-b-2', 'border-orange-500', 'font-semibold');
-      this.classList.remove('hover:text-orange-400');
+
+      document.getElementById('productModal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('productModal').classList.add('hidden');
+    }
+
+    loadProducts();
+
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      item.addEventListener('click', function() {
+        navItems.forEach(link => {
+          link.classList.remove('text-orange-500', 'border-b-2', 'border-orange-500', 'font-semibold');
+          link.classList.add('hover:text-orange-400');
+        });
+        this.classList.add('text-orange-500', 'border-b-2', 'border-orange-500', 'font-semibold');
+        this.classList.remove('hover:text-orange-400');
+      });
     });
-  });
   </script>
 </body>
 </html>
