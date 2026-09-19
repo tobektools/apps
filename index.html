@@ -339,21 +339,29 @@
           const mainImg = Array.isArray(p.image) ? p.image[0] : (p.image || '');
 
           grid.innerHTML += `
-            <div class="bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition overflow-hidden flex flex-col justify-between cursor-pointer" onclick="openModal(${p.id})">
-              <div class="relative p-4 bg-gray-50 flex items-center justify-center">
-                <span class="${p.badgeColor || 'bg-orange-500'} text-white text-[10px] font-bold px-2 py-0.5 rounded absolute top-2 left-2">${p.badge || 'Featured'}</span>
-                <span class="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded absolute top-2 right-2">${p.stockStatus || 'Tersedia'}</span>
-                <img src="${mainImg}" alt="${p.name}" class="h-32 object-contain my-2">
+            <div class="bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition overflow-hidden flex flex-col justify-between cursor-pointer" onclick="openModal(${p.id})">
+              
+              <!-- CONTAINER GAMBAR (Latar Putih & Tampilan Penuh) -->
+              <div class="relative w-full h-48 md:h-56 bg-white flex items-center justify-center overflow-hidden p-2">
+                <span class="${p.badgeColor || 'bg-orange-500'} text-white text-[10px] font-bold px-2 py-0.5 rounded absolute top-2 left-2 z-10 shadow-sm">${p.badge || 'Featured'}</span>
+                <span class="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded absolute top-2 right-2 z-10 shadow-sm">${p.stockStatus || 'Tersedia'}</span>
+                
+                <!-- GAMBAR PRODUK TAMPIL PENUH & JELAS -->
+                <img src="${mainImg}" alt="${p.name}" class="w-full h-full object-contain hover:scale-105 transition duration-300">
               </div>
-              <div class="p-3 flex-1 flex flex-col justify-between">
+
+              <!-- INFORMASI PRODUK -->
+              <div class="p-3 flex-1 flex flex-col justify-between border-t border-gray-100">
                 <div>
-                  <h3 class="font-bold text-xs line-clamp-2 text-slate-800">${p.name}</h3>
-                  <p class="text-[10px] text-gray-400 mt-0.5">SKU: ${p.sku}</p>
+                  <h3 class="font-bold text-xs line-clamp-2 text-slate-800 leading-snug">${p.name}</h3>
+                  <p class="text-[10px] text-gray-400 mt-1">SKU: ${p.sku}</p>
                   <div class="mt-2">
                     <span class="text-orange-500 font-extrabold text-sm">Rp ${p.price.toLocaleString('id-ID')}</span>
-                    <span class="text-gray-400 text-[10px] line-through ml-1">Rp ${p.originalPrice ? p.originalPrice.toLocaleString('id-ID') : ''}</span>
+                    <span class="text-gray-400 text-[10px] line-through ml-1">${p.originalPrice ? 'Rp ' + p.originalPrice.toLocaleString('id-ID') : ''}</span>
                   </div>
                 </div>
+
+                <!-- TOMBOL MARKETPLACE -->
                 <div class="grid grid-cols-2 gap-1.5 mt-3 text-[10px] font-bold" onclick="event.stopPropagation()">
                   <a href="#" class="bg-orange-500 text-white py-1.5 text-center rounded hover:opacity-90"><i class="fas fa-shopping-bag mr-1"></i>Shopee</a>
                   <a href="#" class="bg-emerald-600 text-white py-1.5 text-center rounded hover:opacity-90"><i class="fab fa-whatsapp mr-1"></i>WhatsApp</a>
